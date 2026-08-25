@@ -50,5 +50,4 @@ jobs:
           appId: ${{ secrets.FIREBASE_APP_ID }}
           serviceCredentialsFileContent: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           file: ${{ steps.apk.outputs.path }}
-          groups: testers
           releaseNotes: "New Android release"
