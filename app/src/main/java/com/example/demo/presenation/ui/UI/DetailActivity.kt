@@ -48,6 +48,7 @@ class DetailActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String?, modifier: Modifier = Modifier) {
+    /// jusyt
     var scale by remember { mutableFloatStateOf(1f) }
     var offsetX by remember { mutableFloatStateOf(0f) }
     var offsetY by remember { mutableFloatStateOf(0f) }
