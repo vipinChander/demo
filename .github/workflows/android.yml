@@ -32,11 +32,20 @@ jobs:
       - name: Run tests
         run: ./gradlew test
 
-      - name: Build APK
-        run: ./gradlew assembleDebug
+      - name: Build Release APK
+        run: ./gradlew assembleRelease
 
-      - name: Upload APK
+      - name: Upload APK as GitHub Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: demo-debug-apk
-          path: app/build/outputs/apk/debug/app-debug.apk
+          name: demo-release-apk
+          path: app/build/outputs/apk/release/app-release.apk
+
+      - name: Upload APK to Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{ secrets.FIREBASE_APP_ID }}
+          serviceCredentialsFileContent: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          file: app/build/outputs/apk/release/app-release.apk
+          groups: testers
+          releaseNotes: "New release from GitHub Actions"
