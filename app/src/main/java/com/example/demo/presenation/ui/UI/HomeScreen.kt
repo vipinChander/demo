@@ -101,7 +101,6 @@ class HomeScreen : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        Log.d("HomeScreen", "HomeScreen started")
         requestNotificationPermission()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
