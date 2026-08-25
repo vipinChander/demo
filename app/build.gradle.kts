@@ -1,8 +1,11 @@
+
 import java.util.Properties
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
     id("com.google.gms.google-services")
+    id("com.google.firebase.appdistribution") version "5.3.0" apply false
+
 }
 
 android {
@@ -56,6 +59,8 @@ android {
         compose = true
         buildConfig = true
     }
+
+
 }
 
 dependencies {
