@@ -32,7 +32,9 @@ jobs:
         run: ./gradlew assembleRelease
 
       - name: Find APK
-        run: find . -name "*.apk"
+        run: |
+          echo "APK files found:"
+          find . -type f -name "*.apk" -print
 
       - name: Upload APK to Firebase
         uses: wzieba/Firebase-Distribution-Github-Action@v1
@@ -41,3 +43,4 @@ jobs:
           serviceCredentialsFileContent: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           file: app/build/outputs/apk/release/app-release.apk
           groups: testers
+          releaseNotes: "New release"
