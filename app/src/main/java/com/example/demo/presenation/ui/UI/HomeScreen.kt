@@ -168,7 +168,7 @@ class HomeScreen : ComponentActivity() {
                         viewModel.searchImage(inputvalue.value)
                     }
                 ) {
-                    Text("Search Image")
+                    Text(text="Search Image")
                 }
             }
 
